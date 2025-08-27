@@ -7,7 +7,7 @@ if( !("tidyr" %in% installed.packages()) ){
 
 # Load data
 
-#setwd("~/Documents/GitHub/PennLib-FAQ-PowerBI/data")
+#setwd("~/GitHub/PennLib-FAQ-PowerBI/data")
 
 dat_new <- read.csv(allfaqviews_new, # Update this filename
                     skip = 3)

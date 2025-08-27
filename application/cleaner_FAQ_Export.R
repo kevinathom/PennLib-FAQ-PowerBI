@@ -1,6 +1,6 @@
 # Load data
 
-#setwd("C:/Users/kevinat/Documents/PennLib-FAQ-PowerBI/data")
+#setwd("~/GitHub/PennLib-FAQ-PowerBI/data")
 
 names_old <- read.csv(faq_export_old,
                     header = FALSE,

@@ -1,6 +1,6 @@
 # Load data
 
-#setwd("C:/Users/kevinat/Documents/PennLib-FAQ-PowerBI/data")
+#setwd("~/GitHub/PennLib-FAQ-PowerBI/data")
 
 dat_old <- read.csv(queryanalyzer_old)
 dat_new <- read.csv(queryanalyzer_new) # Update this filename
