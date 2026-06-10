@@ -14,9 +14,14 @@ queryanalyzer_old <- "la_queryanalyzer_store.csv"
 queryanalyzer_new <- "queryanalyzer_707_2025-08-27_11_19_29.csv" # Update this filename
 queryanalyzer_out <- "la_queryanalyzer_clean.csv"
 
+BusinessFAQReferrals_old <- "GA_BusinessFAQReferrals_clean.csv"
+BusinessFAQReferrals_new <- "download.csv"
+BusinessFAQReferrals_out <- BusinessFAQReferrals_old
+
 
 # Run scripts
 
 source("~/GitHub/PennLib-FAQ-PowerBI/application/cleaner_allfaqviews.R")
 source("~/GitHub/PennLib-FAQ-PowerBI/application/cleaner_faq_export.R")
 source("~/GitHub/PennLib-FAQ-PowerBI/application/cleaner_queryanalyzer.R")
+#source("~/GitHub/PennLib-FAQ-PowerBI/application/cleaner_GA-BusinessFAQREferrals.R")
