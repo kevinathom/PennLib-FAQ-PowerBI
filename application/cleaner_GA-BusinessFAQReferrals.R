@@ -1,8 +1,6 @@
 # Load data
 
-setwd("~/GitHub/PennLib-FAQ-PowerBI/data")
-
-dat_old <- read.csv("GA_BusinessFAQReferrals_clean.csv")
+dat_old <- read.csv(BusinessFAQReferrals_old)
 dat_new <- read.csv("C:/Users/kevinat/Downloads/download.csv",
                     skip = 6,
                     nrows = 3,
@@ -13,7 +11,6 @@ date_string <- read.csv("C:/Users/kevinat/Downloads/download.csv",
                         nrows = 1,
                         header = FALSE)[1, 1]
 
-#dat_old <- read.csv(BusinessFAQReferrals_old)
 #dat_new <- read.csv(BusinessFAQReferrals_new)
 
 
