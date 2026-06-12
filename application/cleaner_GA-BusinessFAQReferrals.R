@@ -34,14 +34,11 @@ month <- month_lookup[as.integer(substr(date_string, 7, 8))]
 dat_new$Month <- rep(month, nrow(dat_new))
 
 
-# Append or replace data
+# Export data if new
 
-#if month exists, replace, else append
-
-
-# Export data
-
-write.csv(rbind(dat_old, dat_new),
-          file = BusinessFAQReferrals_old,
-          na = "",
-          row.names = FALSE)
+if(! paste0(dat_new$Year[1], dat_new$Month[1]) %in% paste0(dat_old$Year, dat_old$Month)){
+  write.csv(rbind(dat_old, dat_new),
+            file = BusinessFAQReferrals_old,
+            na = "",
+            row.names = FALSE)
+}
