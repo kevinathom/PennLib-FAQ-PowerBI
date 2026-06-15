@@ -1,17 +1,15 @@
 # Load data
 
 dat_old <- read.csv(BusinessFAQReferrals_old)
-dat_new <- read.csv("C:/Users/kevinat/Downloads/download.csv",
+dat_new <- read.csv(BusinessFAQReferrals_new,
                     skip = 6,
                     nrows = 3,
                     row.names = NULL,
                     header = FALSE)[c(1,3), -1] # get the referrer and total referrals
-date_string <- read.csv("C:/Users/kevinat/Downloads/download.csv",
+date_string <- read.csv(BusinessFAQReferrals_new,
                         skip = 3,
                         nrows = 1,
                         header = FALSE)[1, 1]
-
-#dat_new <- read.csv(BusinessFAQReferrals_new)
 
 
 # Restructure table
