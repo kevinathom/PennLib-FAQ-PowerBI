@@ -1,5 +1,5 @@
 # PennLib-FAQ-PowerBI
-This is a Power BI dashboard for reporting University of Pennsylvania Libraries' FAQ use. Data are sourced from Springshare's LibAnswers platform with preprocessing scripts included in this repo.
+This is a Power BI dashboard for reporting University of Pennsylvania Libraries' FAQ use. Data are sourced from Springshare's LibAnswers platform and Google Analytics. Preprocessing scripts are included in this repo.
 
 
 ## License
