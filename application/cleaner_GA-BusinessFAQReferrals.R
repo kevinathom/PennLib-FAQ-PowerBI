@@ -23,10 +23,8 @@ dat_new$Entrances <- as.integer(dat_new$Entrances)
 
 # Append year and month
 
-dat_new$Year <- substr(date_string, 3, 6)
-month_lookup <- c("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
-month <- month_lookup[as.integer(substr(date_string, 7, 8))]
-dat_new$Month <- rep(month, nrow(dat_new))
+dat_new$Year <- as.integer(substr(date_string, 3, 6))
+dat_new$Month <- as.integer(substr(date_string, 7, 8))
 
 
 # Export data if new
