@@ -1,11 +1,20 @@
+# Check for and install required packages
+
+if( !("dplyr" %in% installed.packages()) ){
+  install.packages("dplyr")
+}
+if( !("tidyr" %in% installed.packages()) ){
+  install.packages("tidyr")
+}
+
+
 # Load data
 
 dat_old <- read.csv(BusinessFAQReferrals_old)
 dat_new <- read.csv(BusinessFAQReferrals_new,
                     skip = 6,
-                    nrows = 3,
                     row.names = NULL,
-                    header = FALSE)[c(1,3), -1] # get the referrer and total referrals
+                    header = FALSE)[-c(2:3), ]
 date_string <- read.csv(BusinessFAQReferrals_new,
                         skip = 3,
                         nrows = 1,
@@ -14,11 +23,28 @@ date_string <- read.csv(BusinessFAQReferrals_new,
 
 # Restructure table
 
+## Extract referrer names and remove unnecessary content
 dat_new <- dat_new[ , 1:(ncol(dat_new) - 2)]
-dat_new <- t(dat_new)
-dat_new <- as.data.frame(dat_new)
-colnames(dat_new) <- c("Referrer", "Entrances")
-dat_new$Entrances <- as.integer(dat_new$Entrances)
+refer_lookup <- data.frame(t(dat_new[1, -1]),
+                           colnames(dat_new)[-1])
+dat_new <- dat_new[-1, ]
+
+## Summarize by FAQ group
+dat_new <- dat_new |>
+  dplyr::mutate(dplyr::across(-1, as.integer))
+dat_new$GroupId <- ""
+dat_new$GroupId[grep("/business", dat_new[ , 1])] <- "1237"
+dat_new <- dat_new[ , -1] |>
+  dplyr::group_by(GroupId) |>
+  dplyr::summarise(dplyr::across(dplyr::everything(), sum, na.rm = TRUE))
+
+## Format for reporting
+dat_new <- tidyr::pivot_longer(dat_new,
+                               cols = 2:ncol(dat_new),
+                               names_to = "Referrer",
+                               values_to = "Entrances")
+dat_new <- dat_new[dat_new$Entrances != 0, ]
+dat_new$Referrer <- refer_lookup[match(dat_new$Referrer, refer_lookup[ , 2]), 1]
 
 
 # Append year and month
