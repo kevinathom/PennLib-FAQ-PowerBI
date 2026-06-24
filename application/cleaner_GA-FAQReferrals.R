@@ -10,12 +10,12 @@ if( !("tidyr" %in% installed.packages()) ){
 
 # Load data
 
-dat_old <- read.csv(BusinessFAQReferrals_old)
-dat_new <- read.csv(BusinessFAQReferrals_new,
+dat_old <- read.csv(FAQReferrals_old)
+dat_new <- read.csv(FAQReferrals_new,
                     skip = 6,
                     row.names = NULL,
                     header = FALSE)[-c(2:3), ]
-date_string <- read.csv(BusinessFAQReferrals_new,
+date_string <- read.csv(FAQReferrals_new,
                         skip = 3,
                         nrows = 1,
                         header = FALSE)[1, 1]
@@ -57,7 +57,7 @@ dat_new$Month <- as.integer(substr(date_string, 7, 8))
 
 if(! paste0(dat_new$Year[1], dat_new$Month[1]) %in% paste0(dat_old$Year, dat_old$Month)){
   write.csv(rbind(dat_old, dat_new),
-            file = BusinessFAQReferrals_old,
+            file = FAQReferrals_old,
             na = "",
             row.names = FALSE)
 }
