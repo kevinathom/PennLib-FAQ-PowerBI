@@ -14,9 +14,9 @@ queryanalyzer_old <- "la_queryanalyzer_store.csv"
 queryanalyzer_new <- "queryanalyzer_707_2025-08-27_11_19_29.csv" # Update this filename
 queryanalyzer_out <- "la_queryanalyzer_clean.csv"
 
-BusinessFAQReferrals_old <- "GA_BusinessFAQReferrals_clean.csv"
-BusinessFAQReferrals_dir <- "./GA_BusinessFAQReferrals_new"
-BusinessFAQReferrals_out <- BusinessFAQReferrals_old
+FAQReferrals_old <- "GA_FAQReferrals_clean.csv"
+FAQReferrals_dir <- "./GA_FAQReferrals_new"
+FAQReferrals_out <- FAQReferrals_old
 
 
 # Run scripts
@@ -24,9 +24,9 @@ BusinessFAQReferrals_out <- BusinessFAQReferrals_old
 source("~/GitHub/PennLib-FAQ-PowerBI/application/cleaner_allfaqviews.R")
 source("~/GitHub/PennLib-FAQ-PowerBI/application/cleaner_faq_export.R")
 source("~/GitHub/PennLib-FAQ-PowerBI/application/cleaner_queryanalyzer.R")
-for(filename in list.files(BusinessFAQReferrals_dir,
+for(filename in list.files(FAQReferrals_dir,
                            full.names = TRUE
                            )){
-  BusinessFAQReferrals_new <- filename
-  source("~/GitHub/PennLib-FAQ-PowerBI/application/cleaner_GA-BusinessFAQREferrals.R")
+  FAQReferrals_new <- filename
+  source("~/GitHub/PennLib-FAQ-PowerBI/application/cleaner_GA-FAQREferrals.R")
 }
